@@ -3,7 +3,7 @@
 
 	date_default_timezone_set('Asia/Ho_Chi_Minh');
 	$date_current = '';
-	$date_current = date('Y-m-d H:i:sa');
+	$date_current = date('Y-m-d H:i:s');
 
 	session_start();
 	if (@$_SESSION['username']) {

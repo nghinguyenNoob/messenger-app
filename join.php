@@ -39,9 +39,13 @@
 			} else {
 				$password = md5($password);
 				$query_create_user = pg_query($connect_db, "INSERT INTO users VALUES(DEFAULT,'$username', '$password', '$date_current')");
-				echo $show_alert . 'Đăng ký tài khoản thành công';
-				$_SESSION['username'] = $username;
-				echo '<script>window.location.reload();</script>';
+				if (!$query_create_user) {
+					echo $show_alert . 'Xuất hiện lỗi trong quá trình đăng ký đăng nhập!';
+				} else {
+					echo $show_alert . 'Đăng ký tài khoản thành công';
+					$_SESSION['username'] = $username;
+					echo '<script>window.location.reload();</script>';
+				}
 			}
 		}
 

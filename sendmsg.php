@@ -14,7 +14,7 @@
 	$body_msg = trim($body_msg);
 
 	if ($body_msg != '') {
-		$query_send_msg = @pg_query($connect_db, "INSERT INTO messages VALUES(DEFAULT, '$body_msg', '$user', '$date_current')");
+		$query_send_msg = pg_query($connect_db, "INSERT INTO messages VALUES(DEFAULT, '$body_msg', '$user', '$date_current')");
 	}
 
 ?>

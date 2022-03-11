@@ -3,4 +3,9 @@ $.ajaxSetup({
 	cache: false
 });
 
-setInterval(function() {$('.main-chat').load('msglog.php');}, 1000);
+// Set time load page 1s
+setInterval(loadMessage, 1000);
+
+function loadMessage() {
+	$('.main-chat').load('msglog.php');
+}
