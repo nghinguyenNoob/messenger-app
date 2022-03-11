@@ -5,9 +5,9 @@
 		header("Location: index.php");
 	}
 
-	$query_get_msg = mysqli_query($connect_db, "SELECT * FROM messages ORDER BY id_msg ASC");
+	$query_get_msg = pg_query($connect_db, "SELECT * FROM messages ORDER BY id_msg ASC");
 
-	while($row = mysqli_fetch_assoc($query_get_msg)) {
+	while($row = pg_fetch_assoc($query_get_msg)) {
 		$date_sent = $row['date_sent'];
 	    // $day_sent = substr($date_sent, 8, 2); // Ngày gửi
 	    // $month_sent = substr($date_sent, 5, 2); // Tháng gửi

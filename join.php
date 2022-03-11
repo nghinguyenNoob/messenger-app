@@ -6,23 +6,23 @@
 		header("Location: index.php");
 	}
 
-	$username = @mysqli_real_escape_string($connect_db, $_POST['username']);
-	$password = @mysqli_real_escape_string($connect_db, $_POST['password']);
+	$username = @pg_escape_string($connect_db, $_POST['username']);
+	$password = @pg_escape_string($connect_db, $_POST['password']);
 
 	$show_alert = '<script>$("#formJoin .alert").show(); </script>';
 	$hide_alert = '<script>$("#formJoin .alert").hide(); </script>';
 	$success_alert = '<script>$("formJoin .alert").attr("class", "alert-success"); </script>';
-	$query_check_exist_user = mysqli_query($connect_db, "SELECT * FROM users WHERE username = '$username'");
+	$query_check_exist_user = pg_query($connect_db, "SELECT * FROM users WHERE username = '$username'");
 
 	if ($username == '' || $password == '') {
 		echo $show_alert . 'Vui lòng điền đầy đủ thông tin bên trên.';
 	} else {
 
-		if (mysqli_num_rows($query_check_exist_user)) {
+		if (pg_num_rows($query_check_exist_user)) {
 			$password = md5($password);
-			$query_check_login = mysqli_query($connect_db, "SELECT * FROM users WHERE username ='$username' AND password ='$password'");
+			$query_check_login = pg_query($connect_db, "SELECT * FROM users WHERE username ='$username' AND password ='$password'");
 
-			if (mysqli_num_rows($query_check_login)) {
+			if (pg_num_rows($query_check_login)) {
 				echo $show_alert . $success_alert . 'Đăng nhập thành công.';
 				$_SESSION['username'] = $username;
 				echo '<script>window.location.reload();</script>';
@@ -38,7 +38,7 @@
 				echo $show_alert . 'Mật khẩu của bạn quá ngắn, hãy thử lại với mật khẩu khác an toàn hơn';
 			} else {
 				$password = md5($password);
-				$query_create_user = mysqli_query($connect_db, "INSERT INTO users VALUE('', '$username', '$password', '$date_current')");
+				$query_create_user = pg_query($connect_db, "INSERT INTO users VALUES(DEFAULT,'$username', '$password', '$date_current')");
 				echo $show_alert . 'Đăng ký tài khoản thành công';
 				$_SESSION['username'] = $username;
 				echo '<script>window.location.reload();</script>';
