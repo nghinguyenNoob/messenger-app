@@ -17,8 +17,6 @@
     	if ($user) {
     		echo
     			'<div>
-    				<h1><i class="fa fa-commenting"></i> Messenger</h1>
-    				<a href="logout.php"><i class="fa fa-sign-out"></i></a>
     			</div>
     			<div class="clearfix"></div>';
     	} else {
