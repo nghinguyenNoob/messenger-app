@@ -40,7 +40,7 @@
 					</div>
 					<div class="box-chat">
 						<form method="POST" id="formSendMsg" onsubmit="return false;">
-							<input type="text" placeholder="Nhập nội dung tin nhắn...">
+							<input type="text" name="body_message" placeholder="Nhập nội dung tin nhắn...">
 						</form>
 					</div>
 				</div>

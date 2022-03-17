@@ -1,3 +1,7 @@
+$.ajaxSetup({
+	cache: false
+});
+
 function Join() {
 	$username = $('#username').val();
 	$password = $('#password').val();
@@ -15,11 +19,13 @@ function Join() {
 		},
 		error: function (error) {
 			alert('error');
-		}
+		},
 	});
 }
 
 $('#formJoin .btn-submit').click(function () {
 	$(this).html('Đang tải...');
 	Join();
+	// window.location.reload();
+	// $('.navbar-action').load('userlog.php');
 });

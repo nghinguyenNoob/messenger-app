@@ -5,14 +5,15 @@
 		header("Location: index.php");
 	}
 
-	$query_get_user = pg_query($connect_db, "SELECT * FROM users ORDER BY id_user ASC");
+	$group_for = $user;
 
-	while($row = pg_fetch_assoc($query_get_user)) {
+	$query_get_group = pg_query($connect_db, "SELECT * FROM groups ORDER BY id_group ASC");
+
+	while($row = pg_fetch_assoc($query_get_group)) {
 	    echo '
-	    	<div class="navbar-row">
+	    	<div class="navbar-row ' .$row['id_group']. '" onClick="changeGroupChat(this)">
 				<image src="image/avatar-beer.jpg">
-				<h2>' .$row['username']. '</h2>
-			</div>
-	    ';
+				<h2>' .$row['group_name']. '</h2>
+			</div>';
 	}
 ?>
