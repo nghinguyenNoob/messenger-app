@@ -36,12 +36,16 @@
 						<i class="fa fa-gift"></i>
 						<i class="fa fa-user-plus"></i>
 					</div>
-					<div class="main-chat">
+					<div class="main-chat" id="main-chat">
 					</div>
 					<div class="box-chat">
-						<form method="POST" id="formSendMsg" onsubmit="return false;">
-							<input type="text" name="body_message" placeholder="Nhập nội dung tin nhắn...">
-						</form>
+						<div></div>
+						<div>
+							<form method="POST" id="formSendMsg" onsubmit="return false;">
+								<input type="text" name="body_message" placeholder="Nhập nội dung tin nhắn...">
+							</form>
+						</div>
+						<div></div>
 					</div>
 				</div>
 			</div>

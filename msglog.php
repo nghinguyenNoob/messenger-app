@@ -36,4 +36,8 @@
 			</div>';
 	    }
 	}
+	echo "<script>
+			var mainDiv = document.querySelector('.main-chat');
+			$('#main-chat').scrollTop(mainDiv.scrollHeight);
+		</script>";
 ?>

@@ -38,6 +38,4 @@ function changeGroupChat(e) {
 	group_id = group_id.split(" ")[1];
 	$('.main-chat').load('msglog.php', {
 				group_id: group_id});
-	// Kéo hết thanh cuộn xuống dưới
-	// window.scrollBy(0, $('.main-chat').height());
 };
