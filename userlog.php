@@ -7,7 +7,7 @@
 
 	$group_for = $user;
 
-	$query_get_group = pg_query($connect_db, "SELECT * FROM groups ORDER BY id_group ASC");
+	$query_get_group = pg_query($connect_db, "SELECT * FROM groups WHERE group_for = '$user' ORDER BY id_group ASC");
 
 	while($row = pg_fetch_assoc($query_get_group)) {
 	    echo '
